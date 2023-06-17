@@ -9,7 +9,7 @@ E2: XSS (Web)
 
 E3: Web Forensics
 
-E4: PCAP Forensics
+E4: Network Forensics
 
 M1: Cookie Exploit (Web)
 
