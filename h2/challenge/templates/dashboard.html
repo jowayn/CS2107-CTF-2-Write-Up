@@ -1,0 +1,25 @@
+<!-- templates/dashboard.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Hello, {{ user.username }}</h3>
+    <div class="box">
+        <p>Manage your accounts and create new accounts from here.</p>
+    </div>
+
+    <div class="box">
+        <h3 class="title has-text-black">Accounts</h3>
+        <ul>
+            {% for account in accounts %}
+            <li>
+                <a href="/transfer/{{ account.id }}" class="has-text-link">{{ account.name }} (Account number: {{account.id}})</a> - {{ account.balance }}
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('create_account') }}" class="has-text-link">Create a new account</a>
+    </div>
+</div>
+{% endblock %}
+

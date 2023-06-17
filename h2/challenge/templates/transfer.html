@@ -1,0 +1,41 @@
+<!-- templates/transfer.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Account {{ account.id }}</h3>
+    <div class="box">
+        <p>Account name: {{ account.name }}</p>
+        <p>Account balance: {{ account.balance }}</p>
+        <p>Account number: {{ account.id }}</p>
+    </div>
+    <div class="box">
+        <h3 class="title has-text-black">Transfer</h3>
+        <form method="POST" action="/transfer/{{ account.id }}">
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="account" placeholder="To account number">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="amount" placeholder="Amount">
+                </div>
+            </div>
+            <button class="button is-block is-info is-large is-fullwidth">Transfer</button>
+        </form>
+    </div>
+    <div class="box">
+        <h3 class="title has-text-black">Accounts</h3>
+        <ul>
+            {% for account in accounts %}
+            <li>
+                <a href="/transfer/{{ account.id }}" class="has-text-link">{{ account.name }} (Account number: {{account.id}})</a> - {{ account.balance }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
